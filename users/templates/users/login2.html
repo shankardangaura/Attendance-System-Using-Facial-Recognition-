@@ -1,0 +1,60 @@
+{% extends "users/layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="card">
+  <div class="card-body login-card-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+
+
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4"> Log In </legend>
+        {{form| crispy}}
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit"> Login!</button>
+      </div>
+    </form>
+
+    <p class="mb-1">
+      <a href="{% url 'password_reset' %}">I forgot my password</a>
+    </p>
+    <p class="mb-0">
+
+      <a href="#" class="text-center" id="popupButton">Register as a new employee</a>
+      <div id="popup" class="popup">
+        <span class="close">&times;</span>
+        <p>Only admin can register a new employee via Admin Portal</p>
+      </div>
+    <!-- <div id="popup" style="display: none;">
+      
+    </div> -->
+  </div>
+  </p>
+</div>
+<!-- /.login-card-body -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  var popupButton = document.getElementById("popupButton");
+  var popup = document.getElementById("popup");
+  var close = document.getElementsByClassName("close")[0];
+
+  popupButton.addEventListener("click", function() {
+    popup.style.display = "block";
+  });
+
+  close.addEventListener("click", function() {
+    popup.style.display = "none";
+  });
+});
+</script>
+</div>
+{% endblock content %}

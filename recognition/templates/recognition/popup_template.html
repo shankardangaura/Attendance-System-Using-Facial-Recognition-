@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'dist/js/popup.js' %}"></script>  <!-- Include your JavaScript file -->
+</head>
+<body>
+    <button id="popupButton">Click Me</button>  <!-- Button that triggers the popup -->
+    <div id="popup" style="display: none;">
+        This is a popup message!
+    </div>
+</body>
+</html>
